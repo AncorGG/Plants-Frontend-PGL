@@ -1,0 +1,7 @@
+{
+  "name": "PlantsApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
