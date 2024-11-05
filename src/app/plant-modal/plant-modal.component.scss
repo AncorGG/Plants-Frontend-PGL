@@ -1,0 +1,16 @@
+.add-plant-modal {
+  ion-item {
+    --padding-start: 0;
+    margin-bottom: 12px;
+  }
+
+  ion-button {
+    margin-top: 12px;
+    --border-radius: 12px;
+  }
+
+  ion-input {
+    border-radius: 8px;
+    --box-shadow: none;
+  }
+}

@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>my-plants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item class="inset-item">
+    <ion-icon name="search-outline"></ion-icon>
+
+    <div style="display: flex; align-items: center; width: 50%;">
+      <ion-segment [(ngModel)]="searchBy" style="margin-right: 10px;">
+        <ion-segment-button value="name">
+          <ion-label>Name</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="age">
+          <ion-label>Age</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-input [(ngModel)]="searchInput" [placeholder]="searchBy === 'name' ? 'Enter plant name' : 'Enter plant age'"
+        [type]="searchBy === 'age' ? 'number' : 'text'" (ionInput)="applyFilters()">
+      </ion-input>
+    </div>
+
+
+    <div style="display: flex; align-items: center; margin-left: auto;">
+      <ion-button class="filter" fill="outline" size="small" (click)="toggleSortBy()">
+        Sort by: {{ sortBy === 'plantName' ? 'Name' : 'Age' }}
+      </ion-button>
+      <ion-icon name="filter-outline" class="filter-icon" (click)="toggleSortOrder()"
+        [ngClass]="{ 'rotate-90': sortOrder === 'desc', 'rotate-0': sortOrder === 'asc' }">
+      </ion-icon>
+    </div>
+  </ion-item>
+
+
+  <ion-list [inset]="true">
+
+    <ion-item *ngFor="let p of plants" (click)="toggleOptions(p.idplant)">
+      <ion-label>
+        <h1>{{ p.plantName }}</h1>
+        <p>Age: {{ p.plantAge }}</p>
+      </ion-label>
+
+      <div *ngIf="expandedPlantId === p.idplant" class="options-container">
+        <ion-button fill="outline" color="primary" shape="round" (click)="configurePlant(p); $event.stopPropagation()">
+          Configure
+        </ion-button>
+        <ion-button fill="outline" color="danger" shape="round" (click)="presentAlert(p); $event.stopPropagation()">
+          Delete
+        </ion-button>
+      </div>
+    </ion-item>
+
+    <ion-item button (click)="openAddPlantModal()" class="add-plant-item">
+      <ion-label class="add-label" style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        ">
+        <ion-icon name="add-circle-outline" size="large"></ion-icon>
+        <h1 style="margin: 0 0 0 8px">Add New</h1>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-alert header="Confirm Delete" message="Are you sure you want to delete this plant?" [buttons]="alertButtons">
+  </ion-alert>
+</ion-content>

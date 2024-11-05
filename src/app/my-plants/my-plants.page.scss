@@ -1,0 +1,61 @@
+.options-container {
+  display: flex;
+  align-items: stretch;
+  height: 90%;
+  width: auto;
+  margin-left: auto;
+}
+
+.options-container ion-button {
+  flex: 1;
+  height: 90%;
+  border-radius: 0;
+  margin: 0 5px;
+  min-width: 80px;
+  padding-inline: 4px;
+}
+
+.add-plant-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  text-align: center;
+}
+
+.add-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-label ion-icon {
+  margin-right: 8px;
+}
+
+.add-label h1 {
+  margin: 0;
+}
+
+.inset-item {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.filter {
+  margin-left: auto;
+}
+
+.filter-icon {
+  margin-left: 1em;
+}
+
+.rotate-90 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.rotate-0 {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New Plant</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="add-plant-modal">
+  <ion-item>
+    <ion-label position="stacked">Plant Name</ion-label>
+    <ion-input [(ngModel)]="newPlantName" placeholder="Enter plant name" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Plant Age</ion-label>
+    <ion-input [(ngModel)]="newPlantAge" type="number" placeholder="Enter plant age" clearInput>
+      <ion-icon slot="end" name="time" color="medium"></ion-icon>
+    </ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addOrUpdatePlant()">Add Plant</ion-button>
+</ion-content>
